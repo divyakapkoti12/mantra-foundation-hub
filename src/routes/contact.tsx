@@ -26,12 +26,11 @@ function Contact() {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const name = String(data.get("name") ?? "");
+    const phone = String(data.get("phone") ?? "");
     const email = String(data.get("email") ?? "");
     const message = String(data.get("message") ?? "");
-    const body = `Hi Mantra Foundation,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0A— ${encodeURIComponent(name)} (${encodeURIComponent(email)})`;
-    window.location.href = `mailto:mantrafoundationrajkot@gmail.com?subject=${encodeURIComponent(
-      "Website enquiry from " + name
-    )}&body=${body}`;
+    const text = `New Contact Form Submission\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
+    window.open(`https://wa.me/919925949494?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -99,9 +98,9 @@ function Contact() {
             {sent ? (
               <div className="mt-6 flex items-start gap-3 rounded-2xl bg-brand-soft/60 p-4 text-sm text-brand-deep">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
-                Your email client should have opened. If not, write to us at
-                <a href="mailto:mantrafoundationrajkot@gmail.com" className="font-semibold underline">
-                  mantrafoundationrajkot@gmail.com
+                WhatsApp should have opened in a new tab with your message. If not, message us on
+                <a href="https://wa.me/919925949494" target="_blank" rel="noreferrer" className="font-semibold underline">
+                  +91 99259 49494
                 </a>
                 .
               </div>
@@ -115,6 +114,16 @@ function Contact() {
                   name="name"
                   className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
                   placeholder="Jane Doe"
+                />
+              </label>
+              <label className="block">
+                <span className="text-xs font-semibold text-foreground/80">Phone</span>
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
+                  placeholder="+91 98765 43210"
                 />
               </label>
               <label className="block">
