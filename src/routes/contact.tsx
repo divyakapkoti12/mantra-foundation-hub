@@ -117,6 +117,16 @@ function Contact() {
                 />
               </label>
               <label className="block">
+                <span className="text-xs font-semibold text-foreground/80">Phone</span>
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
+                  placeholder="+91 98765 43210"
+                />
+              </label>
+              <label className="block">
                 <span className="text-xs font-semibold text-foreground/80">Email</span>
                 <input
                   required
