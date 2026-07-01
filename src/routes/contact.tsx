@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Layout } from "@/components/Layout";
-import { MapPin, Phone, Mail, Send, Instagram, Youtube, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Instagram, Youtube } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -96,17 +95,6 @@ function Contact() {
             <h2 className="font-display text-2xl font-bold">Send us a message</h2>
             <p className="mt-1 text-sm text-muted-foreground">We typically reply within 1–2 business days.</p>
 
-            {sent ? (
-              <div className="mt-6 flex items-start gap-3 rounded-2xl bg-brand-soft/60 p-4 text-sm text-brand-deep">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
-                WhatsApp should have opened in a new tab with your message. If not, message us on
-                <a href="https://wa.me/919925949494" target="_blank" rel="noreferrer" className="font-semibold underline">
-                  +91 99259 49494
-                </a>
-                .
-              </div>
-            ) : null}
-
             <form onSubmit={onSubmit} className="mt-6 grid gap-4">
               <label className="block">
                 <span className="text-xs font-semibold text-foreground/80">Your name</span>
@@ -118,16 +106,6 @@ function Contact() {
                 />
               </label>
               <label className="block">
-                <span className="text-xs font-semibold text-foreground/80">Phone</span>
-                <input
-                  required
-                  type="tel"
-                  name="phone"
-                  className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
-                  placeholder="+91 98765 43210"
-                />
-              </label>
-              <label className="block">
                 <span className="text-xs font-semibold text-foreground/80">Email</span>
                 <input
                   required
@@ -135,6 +113,16 @@ function Contact() {
                   name="email"
                   className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
                   placeholder="you@example.com"
+                />
+              </label>
+              <label className="block">
+                <span className="text-xs font-semibold text-foreground/80">Phone Number</span>
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  className="mt-1 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/30"
+                  placeholder="+91 98765 43210"
                 />
               </label>
               <label className="block">
