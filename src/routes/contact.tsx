@@ -26,12 +26,11 @@ function Contact() {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const name = String(data.get("name") ?? "");
+    const phone = String(data.get("phone") ?? "");
     const email = String(data.get("email") ?? "");
     const message = String(data.get("message") ?? "");
-    const body = `Hi Mantra Foundation,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0A— ${encodeURIComponent(name)} (${encodeURIComponent(email)})`;
-    window.location.href = `mailto:mantrafoundationrajkot@gmail.com?subject=${encodeURIComponent(
-      "Website enquiry from " + name
-    )}&body=${body}`;
+    const text = `New Contact Form Submission\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
+    window.open(`https://wa.me/919925949494?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
