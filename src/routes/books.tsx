@@ -154,7 +154,7 @@ function BookGrid({ books }: { books: typeof BOOKS }) {
               <h3 className="mt-1 font-display text-sm font-semibold text-foreground">{b.level || "—"}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {b.pdf ? (
-                  <a
+                  <>
 
                     href={b.pdf}
                     target="_blank"
@@ -164,7 +164,7 @@ function BookGrid({ books }: { books: typeof BOOKS }) {
                     <ExternalLink className="h-3.5 w-3.5" />
                     View Index
                   </a>
-                   <a
+
                 href={b.pdf}
                 download
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-white px-3 py-2 text-xs font-semibold text-foreground hover:border-brand hover:text-brand-deep"
@@ -173,42 +173,41 @@ function BookGrid({ books }: { books: typeof BOOKS }) {
                 <Download className="h-3.5 w-3.5" />
               </a>
             </>
-              ) :
-              <span className="text-xs text-muted-foreground">Index coming soon</span>
+            ) : (
+            <span className="text-xs text-muted-foreground">Index coming soon</span>
                 )}
+          </div>
             </div>
-          </div>
     </article >
-      ))
+        ))
 }
-    </div >
-      { selectedBook && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      </div >
+  { selectedBook && (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      onClick={() => setSelectedBook(null)}
+    >
+      <div
+        className="w-full max-w-sm rounded-3xl bg-card p-6 text-center shadow-card"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="font-display text-lg font-semibold">{selectedBook.title}</h3>
+        <p className="mt-4 text-base text-foreground">
+          To Buy, contact{" "}
+          <a href="tel:+919925949494" className="font-semibold text-brand-deep">
+            9925949494
+          </a>
+        </p>
+        <button
+          type="button"
           onClick={() => setSelectedBook(null)}
+          className="mt-6 inline-flex items-center justify-center rounded-full border border-border bg-white px-5 py-2 text-xs font-semibold text-foreground hover:border-brand hover:text-brand-deep"
         >
-          <div
-            className="w-full max-w-sm rounded-3xl bg-card p-6 text-center shadow-card"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 className="font-display text-lg font-semibold">{selectedBook.title}</h3>
-            <p className="mt-4 text-base text-foreground">
-              To Buy, contact{" "}
-              <a href="tel:+919925949494" className="font-semibold text-brand-deep">
-                9925949494
-              </a>
-            </p>
-            <button
-              type="button"
-              onClick={() => setSelectedBook(null)}
-              className="mt-6 inline-flex items-center justify-center rounded-full border border-border bg-white px-5 py-2 text-xs font-semibold text-foreground hover:border-brand hover:text-brand-deep"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )
-}
+          Close
+        </button>
+      </div>
+    </div>
+  )}
     </>
   );
 }
