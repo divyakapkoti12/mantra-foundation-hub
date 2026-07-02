@@ -154,7 +154,7 @@ function BookGrid({ books }: { books: typeof BOOKS }) {
               <h3 className="mt-1 font-display text-sm font-semibold text-foreground">{b.level || "—"}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {b.pdf ? (
-                  <>
+                  <a
 
                     href={b.pdf}
                     target="_blank"
