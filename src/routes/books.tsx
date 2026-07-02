@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Layout } from "@/components/Layout";
@@ -156,8 +157,8 @@ function BookGrid({ books }) {
 
 function renderPdfLinks(b) {
   return (
-    <React.Fragment>
-      
+   <React.Fragment>
+      <a
         href={b.pdf}
         target="_blank"
         rel="noreferrer"
@@ -165,8 +166,8 @@ function renderPdfLinks(b) {
       >
         <ExternalLink className="h-3.5 w-3.5" />
         View Index
-      </a>
-      
+     </a>
+      <a
         href={b.pdf}
         download
         className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-white px-3 py-2 text-xs font-semibold text-foreground hover:border-brand hover:text-brand-deep"
