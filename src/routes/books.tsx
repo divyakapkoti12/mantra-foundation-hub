@@ -80,8 +80,8 @@ function BooksPage() {
                 key={s}
                 onClick={() => setFilter(s)}
                 className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${filter === s
-                  ? "bg-[image:var(--gradient-brand)] text-primary-foreground shadow-card"
-                  : "border border-border bg-white text-foreground/70 hover:border-brand hover:text-brand-deep"
+                    ? "bg-[image:var(--gradient-brand)] text-primary-foreground shadow-card"
+                    : "border border-border bg-white text-foreground/70 hover:border-brand hover:text-brand-deep"
                   }`}
               >
                 {s}
